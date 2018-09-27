@@ -1,0 +1,22 @@
+<%= form_with(model: category, local: true, :html => {autocomplete: "off"}) do |form| %>
+    <div class="field">
+      <%= form.label :name, 'Título' %>
+      <%= form.text_field :name, id: :category_name %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit 'Guardar' %>
+    </div>
+<% end %>
+
+<% content_for :otherscripts do %>
+
+    <% if category.errors.any? %>
+        <script>
+            toastr.options.closeButton = true;
+            toastr.error('<%= category.errors.messages[:name][0] %>')
+        </script>
+    <% end %>
+
+
+<% end %>
