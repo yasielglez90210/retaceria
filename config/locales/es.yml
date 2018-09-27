@@ -31,3 +31,10 @@
 
 es:
   hello: "Hola Mundo"
+  activerecord:
+   errors:
+    models:
+     category:
+      attributes:
+       name:
+        taken: "El nombre ya se encuentra registrado"

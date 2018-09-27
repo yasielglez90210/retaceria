@@ -11,9 +11,9 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require turbolinks
 //= require jquery
 //= require bootstrap.min
+//= require toastr
 //= require jquery.slimscroll.min
 //= require fastclick
 //= require adminlte

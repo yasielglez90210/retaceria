@@ -13,7 +13,9 @@
  *= require 'bootstrap.min'
  *= require 'font-awesome.min'
  *= require 'ionicons.min'
+ *= require toastr
  *= require 'adminLTE.min'
  *= require 'all-skins.min'
- *urequire 'skin-blue-light.min'
+ *= require 'custom-styles'
+ *require 'skin-blue-light.min'
  */
