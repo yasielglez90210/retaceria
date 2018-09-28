@@ -1,0 +1,29 @@
+<p>
+  <strong>Name:</strong>
+  <%= @retacerium.name %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @retacerium.category.name %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @retacerium.cost %>
+</p>
+
+<p>
+  <strong>Rinde:</strong>
+  <%= @retacerium.rinde %>
+</p>
+
+<p>
+  <strong>Color:</strong><br>
+  <% @retacerium.colors.each do |color| %>
+    <%= color.name %> <br>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_retacerium_path(@retacerium) %> |
+<%= link_to 'Back', retaceria_path %>

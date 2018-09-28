@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :retaceria
   resources :colors
   resources :categories
   # devise_for :users

@@ -1,16 +1,4 @@
-<%= form_with(model: color, local: true) do |form| %>
-  <% if color.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(color.errors.count, "error") %> prohibited this color from being saved:</h2>
-
-      <ul>
-      <% color.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<%= form_with(model: color, local: true, :html => {autocomplete: "off"}) do |form| %>
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name, id: :color_name %>
@@ -19,4 +7,15 @@
   <div class="actions">
     <%= form.submit %>
   </div>
+<% end %>
+
+<% content_for :otherscripts do %>
+
+  <% if color.errors.any? %>
+    <script>
+        toastr.options.closeButton = true;
+        toastr.error('<%= color.errors.messages[:name][0] %>')
+    </script>
+  <% end %>
+
 <% end %>

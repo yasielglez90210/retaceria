@@ -1,0 +1,73 @@
+<div class="box box-primary">
+  <!-- /.box-header -->
+  <!-- form start -->
+  <%= form_with(model: retacerium, local: true, :html => {autocomplete: "off"}, class: 'form-horizontal') do |form| %>
+    <div class="box-body">
+      <br>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= form.label :name, 'Nombre', class: 'col-sm-2 control-label' %>
+            <div class="col-sm-10">
+              <%= form.text_field :name, id: :retacerium_name, class: 'form-control' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= form.label :category_id, 'Categoria', class: 'col-sm-2 control-label' %>
+            <div class="col-sm-10">
+              <select name="retacerium[category_id]" id="retacerium[category_id]" class="form-control">
+                <% @categories.each do |category| %>
+                  <option value="<%= category.id %>"><%= category.name %></option>
+                <% end %>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= form.label :cost, 'Costo', class: 'col-sm-2 control-label' %>
+            <div class="col-sm-5">
+              <%= form.number_field :cost, id: :retacerium_cost, class: 'form-control' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= form.label :rinde, 'Rinde', class: 'col-sm-2 control-label' %>
+            <div class="col-sm-5">
+              <%= form.number_field :rinde, id: :retacerium_rinde, class: 'form-control' %>
+            </div>
+            <small class="col-sm-2 control-label">por mt.</small>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= form.label :color_id, 'Colores', class: 'col-sm-2 control-label' %>
+            <div class="col-sm-10 checkbox">
+              <% @colors.each do |color| %>
+                <% if retacerium.colors.include? color %>
+                  <label>
+                    <%= check_box_tag "colors[]", color.id, true %>
+                    <%= color.name %>
+                  </label>
+                <% else %>
+                  <label>
+                    <%= check_box_tag "colors[]", color.id, false %>
+                    <%= color.name %>
+                  </label>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.box-body -->
+    <div class="box-footer">
+      <% if action_name == 'edit' %>
+        <%= link_to 'Ver', @retacerium, class: 'btn btn-default' %> &nbsp;
+      <% end %>
+      <%= link_to 'Atrás', retaceria_path, class: 'btn btn-default' %>
+      <%= form.submit 'Guardar', class: 'btn btn-success pull-right' %>
+    </div>
+    <!-- /.box-footer -->
+  <% end %>
+</div>

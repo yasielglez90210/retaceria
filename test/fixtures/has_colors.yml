@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  retacerium: one
+  color: one
+
+two:
+  retacerium: two
+  color: two
