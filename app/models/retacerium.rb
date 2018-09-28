@@ -25,8 +25,10 @@ class Retacerium < ApplicationRecord
 
   def save_colors
     # raise @categories.to_yaml
-    @colors.each do |color_id|
-      HasColor.create(color_id: color_id, retacerium_id: self.id)
+    if !@colors.nil?
+      @colors.each do |color_id|
+        HasColor.create(color_id: color_id, retacerium_id: self.id)
+      end
     end
   end
 

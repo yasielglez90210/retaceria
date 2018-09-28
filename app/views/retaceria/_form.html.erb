@@ -1,4 +1,4 @@
-<div class="box box-primary">
+<div class="box">
   <!-- /.box-header -->
   <!-- form start -->
   <%= form_with(model: retacerium, local: true, :html => {autocomplete: "off"}, class: 'form-horizontal') do |form| %>
@@ -65,7 +65,7 @@
       <% if action_name == 'edit' %>
         <%= link_to 'Ver', @retacerium, class: 'btn btn-default' %> &nbsp;
       <% end %>
-      <%= link_to 'Atrás', retaceria_path, class: 'btn btn-default' %>
+      <%= link_to 'Atrás', request.referer, class: 'btn btn-default' %>
       <%= form.submit 'Guardar', class: 'btn btn-success pull-right' %>
     </div>
     <!-- /.box-footer -->

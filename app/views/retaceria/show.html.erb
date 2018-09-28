@@ -1,29 +1,58 @@
-<p>
-  <strong>Name:</strong>
-  <%= @retacerium.name %>
-</p>
+<div class="box">
+  <!-- /.box-header -->
+  <!-- form start -->
+  <div class="box-body">
+    <br>
+    <div class="row form-horizontal">
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= label_tag 'name', 'Nombre', class: 'col-sm-2 control-label' %>
+          <div class="col-sm-10">
+            <%= text_field_tag 'name', @retacerium.name, id: :retacerium_name, class: 'form-control', disabled: '' %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= label_tag 'name', 'Categoria', class: 'col-sm-2 control-label' %>
+          <div class="col-sm-10">
+            <select name="retacerium[category_id]" id="retacerium[category_id]" class="form-control" disabled>
+              <option value="<%= @retacerium.category.id %>"><%= @retacerium.category.name %></option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= label_tag 'cost', 'Costo', class: 'col-sm-2 control-label' %>
+          <div class="col-sm-5">
+            <%= number_field_tag 'cost', @retacerium.cost, class: 'form-control', disabled: '' %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= label_tag 'rinde', 'Rinde', class: 'col-sm-2 control-label' %>
+          <div class="col-sm-5">
+            <%= number_field_tag 'rinde', @retacerium.rinde, class: 'form-control', disabled: '' %>
+          </div>
+          <small class="col-sm-2 control-label">por mt.</small>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= label_tag 'colors', 'Colores', class: 'col-sm-2 control-label' %>
+          <div class="col-sm-10">
+            <% @retacerium.colors.each do |color| %>
+              <%= color.name %> <br>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.box-body -->
+  <div class="box-footer">
+    <%= link_to 'Editar', edit_retacerium_path(@retacerium), class: 'btn btn-default' %> &nbsp;
+    <%= link_to 'Atrás', request.referer, class: 'btn btn-default' %>
+  </div>
+  <!-- /.box-footer -->
+</div>
 
-<p>
-  <strong>Category:</strong>
-  <%= @retacerium.category.name %>
-</p>
 
-<p>
-  <strong>Cost:</strong>
-  <%= @retacerium.cost %>
-</p>
-
-<p>
-  <strong>Rinde:</strong>
-  <%= @retacerium.rinde %>
-</p>
-
-<p>
-  <strong>Color:</strong><br>
-  <% @retacerium.colors.each do |color| %>
-    <%= color.name %> <br>
-  <% end %>
-</p>
-
-<%= link_to 'Edit', edit_retacerium_path(@retacerium) %> |
-<%= link_to 'Back', retaceria_path %>
