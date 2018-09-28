@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   root to: 'application#dashboard'
-  resources :roles
+  resources :retaceria
   resources :colors
   resources :categories
+  resources :roles
   devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions',passwords: 'users/passwords' }
 
   scope '/admin' do

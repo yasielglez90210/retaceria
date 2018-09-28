@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  category: one
+  cost: 1
+  rinde: 1
+  color: one
+
+two:
+  name: MyString
+  category: two
+  cost: 1
+  rinde: 1
+  color: two
