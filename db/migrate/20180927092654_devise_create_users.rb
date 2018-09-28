@@ -5,6 +5,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
     create_table :users do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
+      t.string :username,           null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 
       ## Recoverable
@@ -42,8 +43,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
     # add_index :users, :unlock_token,         unique: true
 
     User.create! do |u|
-      u.email     = 'test@test.com'
-      u.password    = 'password'
+      u.email     = 'admin@gmail.com'
+      u.password    = 'User*123'
+      u.username    = 'admin'
     end
   end
 end
