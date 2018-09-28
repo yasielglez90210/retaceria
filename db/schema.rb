@@ -24,6 +24,25 @@ ActiveRecord::Schema.define(version: 20180928190227) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "has_colors", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "retacerium_id"
+    t.bigint "color_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["color_id"], name: "index_has_colors_on_color_id"
+    t.index ["retacerium_id"], name: "index_has_colors_on_retacerium_id"
+  end
+
+  create_table "retaceria", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.bigint "category_id"
+    t.integer "cost"
+    t.integer "rinde"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_retaceria_on_category_id"
+  end
+
   create_table "roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.text "description"
@@ -55,4 +74,7 @@ ActiveRecord::Schema.define(version: 20180928190227) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "has_colors", "colors"
+  add_foreign_key "has_colors", "retaceria"
+  add_foreign_key "retaceria", "categories"
 end

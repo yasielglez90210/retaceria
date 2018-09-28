@@ -36,7 +36,7 @@
       <%= form.label :role_id, 'Rol' %>
       <select name="user[role_id]" id="role_id">
         <% @roles.each do |rol| %>
-            <option value="<%= rol.id %>"> <%= rol.name %></option>
+            <option value="<%= rol.id %>"><%= rol.name %></option>
         <% end %>
       </select>
     </div>
