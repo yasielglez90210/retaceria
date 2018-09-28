@@ -12,9 +12,11 @@
 <% content_for :otherscripts do %>
 
     <% if category.errors.any? %>
+
         <script>
-            toastr.options.closeButton = true;
-            toastr.error('<%= category.errors.messages[:name][0] %>')
+            <% category.errors.full_messages.each do |err| %>
+            toastr.error('<%= err %>');
+            <% end %>
         </script>
     <% end %>
 
