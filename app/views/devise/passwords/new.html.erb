@@ -6,7 +6,7 @@
 
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: {method: :post}) do |f| %>
         <div class="form-group has-feedback">
-          <%= f.email_field :email, autofocus: true, class: 'form-control', autocomplete: "off" %>
+          <%= f.email_field :email, autofocus: true, class: 'form-control', autocomplete: "off",required: true %>
           <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         </div>
 
@@ -15,7 +15,17 @@
     <% end %>
     <br>
     <%= link_to "Iniciar sesión", new_session_path(resource_name) %>
-
   </div>
   <!-- /.login-box-body -->
 </div>
+
+<% content_for :otherscripts do %>
+
+    <% if @error %>
+        <script>
+            toastr.error('Correo no registrado');
+        </script>
+    <% end %>
+
+
+<% end %>

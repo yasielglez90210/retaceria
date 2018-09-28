@@ -35,7 +35,7 @@ class CategoriesController < ApplicationController
         format.json { render :show, status: :created, location: @category }
       else
          p @category.errors.messages[:name]
-        format.html { render :new,:flash => {error: 'Categoría editada exitosamente'}}
+        format.html { render :new,:flash => {error: 'Error al editar '}}
         format.json { render json: @category.errors, status: :unprocessable_entity }
       end
     end
