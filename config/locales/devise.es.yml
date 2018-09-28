@@ -7,10 +7,10 @@ es:
     failure:
       already_authenticated: "Ya está dentro del sistema."
       inactive: "Su cuenta aún no ha sido activada."
-      invalid: "Correo o contraseña inválidos."
+      invalid: "Usuario o contraseña inválidos."
       invalid_token: "Ficha de autenticación invalida."
       locked: "Su cuenta está bloqueada."
-      not_found_in_database: "Correo o contraseña inválidos."
+      not_found_in_database: "Usuario o contraseña inválidos."
       timeout: "Su sesión ha expirado, por favor ingrese nuevamente para continuar."
       unauthenticated: "Necesita ingresar o registrarse para continuar."
       unconfirmed: "Debe confirmar su cuenta para continuar."

@@ -30,11 +30,18 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 es:
-  hello: "Hola Mundo"
+  errors:
+   format: "%{message}"
   activerecord:
    errors:
     models:
      category:
       attributes:
        name:
-        taken: "El nombre ya se encuentra registrado"
+        taken: "La categoria ya se encuentra registrada"
+     user:
+      attributes:
+       password_confirmation:
+        confirmation: "Las contraseñas no coinciden"
+       password:
+        too_short: "Contraseña demasiada corta"

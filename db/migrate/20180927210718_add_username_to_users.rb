@@ -7,6 +7,7 @@ class AddUsernameToUsers < ActiveRecord::Migration[5.1]
       u.email     = 'admin@gmail.com'
       u.password    = 'User*123'
       u.username    = 'admin'
+      u.name    = 'Administrador'
     end
 
   end
