@@ -39,6 +39,10 @@ es:
       attributes:
        name:
         taken: "La categoria ya se encuentra registrada"
+     color:
+      attributes:
+       name:
+        taken: "El color ya se encuentra registrado"
      user:
       attributes:
        password_confirmation:
