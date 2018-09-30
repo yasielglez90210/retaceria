@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
 
 
   def dashboard
+    @arreglo = [{'llave1':'valor1'},{'llave2':'valor2'}]
+    @array_json = ActiveSupport::JSON.encode(@arreglo)
     render  layout: 'dashboard'
   end
 end

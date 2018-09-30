@@ -1,1 +1,9 @@
 <p>Contenido</p>
+
+<% content_for :otherscripts do %>
+        <script>
+          // Para cuando se tenga que trabajar con graficos
+            var provider = "<%= @array_json %>".replace(/&quot;/g, '\"');
+            console.log(provider);
+        </script>
+<% end %>

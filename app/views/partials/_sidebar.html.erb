@@ -2,6 +2,51 @@
   <!-- sidebar: style can be found in sidebar.less -->
   <section class="sidebar">
     <!-- sidebar menu: : style can be found in sidebar.less -->
+
+    <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+      <li class="active"><a href="#retaceria-tab" data-toggle="tab">Retaceria</a></li>
+      <li><a href="#merceria-tab" data-toggle="tab">Merceria</a></li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane active" id="retaceria-tab">
+        <ul class="sidebar-menu" data-widget="tree">
+          <li>
+            <a href="<%= retaceria_path %>">
+              <span>Productos</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span>Ventas</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span>Estadísticas</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="tab-pane" id="merceria-tab">
+        <ul class="sidebar-menu" data-widget="tree">
+          <li>
+            <a href="#">
+              <span>Productos</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span>Ventas</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span>Estadísticas</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
     <ul class="sidebar-menu" data-widget="tree">
       <li>
         <a href="<%= users_path %>">
@@ -19,45 +64,6 @@
           <li><a href="<%= categories_path %>">Categorias</a></li>
           <li><a href="<%= colors_path %>">Colores</a></li>
         </ul>
-      </li>
-      <li class="header">Retaceria</li>
-      <li class="treeview">
-        <a href="#">
-          <span>Productos</span>
-          <span class="pull-right-container">
-                    <i class="fa fa-angle-left pull-right"></i>
-                  </span>
-        </a>
-        <ul class="treeview-menu">
-          <li><a href="<%= retaceria_path %>">Retacería</a></li>
-<!--          <li><a href="<%#= colors_path %>">Colores</a></li>-->
-        </ul>
-      </li>
-      <li>
-        <a href="#">
-          <span>Ventas</span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <span>Estadísticas</span>
-        </a>
-      </li>
-      <li class="header">Merceria</li>
-      <li>
-        <a href="#">
-          <span>Productos</span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <span>Ventas</span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <span>Estadísticas</span>
-        </a>
       </li>
     </ul>
   </section>
