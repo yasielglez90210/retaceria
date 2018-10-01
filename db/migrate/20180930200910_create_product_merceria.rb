@@ -4,8 +4,8 @@ class CreateProductMerceria < ActiveRecord::Migration[5.1]
       t.string :name, null: false, default: ""
       t.string :article
       t.integer :cost
-      t.integer :price, null: false, default: 10
-      t.integer :initial_stock, null: false, default: 10
+      t.integer :price, null: false
+      t.integer :initial_stock, null: false
       t.integer :minimum
       t.integer :current_stock
 
