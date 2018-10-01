@@ -5,7 +5,7 @@ class ColorsController < ApplicationController
   # GET /colors
   # GET /colors.json
   def index
-    @titulo = 'Colores'
+    @title = 'Colores'
     @colors = Color.all
   end
 

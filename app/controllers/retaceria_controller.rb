@@ -6,7 +6,7 @@ class RetaceriaController < ApplicationController
   # GET /retaceria
   # GET /retaceria.json
   def index
-    @titulo = 'Productos de Retaceria'
+    @title = 'Productos de Retaceria'
     @retaceria = Retacerium.all
   end
 
@@ -17,13 +17,13 @@ class RetaceriaController < ApplicationController
 
   # GET /retaceria/new
   def new
-    @titulo = 'Nuevo producto de Retaceria'
+    @title = 'Nuevo producto de Retaceria'
     @retacerium = Retacerium.new
   end
 
   # GET /retaceria/1/edit
   def edit
-    @titulo = 'Editando producto de Retaceria'
+    @title = 'Editando producto de Retaceria'
   end
 
   # POST /retaceria

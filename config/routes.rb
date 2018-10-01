@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'library/index'
+
   root to: 'application#dashboard'
   resources :retaceria
   resources :colors

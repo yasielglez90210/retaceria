@@ -12,7 +12,6 @@
 <% content_for :otherscripts do %>
 
     <% if category.errors.any? %>
-
         <script>
             <% category.errors.full_messages.each do |err| %>
             toastr.error('<%= err %>');

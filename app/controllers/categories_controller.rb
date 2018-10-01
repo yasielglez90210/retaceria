@@ -5,7 +5,8 @@ class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   def index
-    @titulo = 'Categorias de Productos'
+    @back = true
+    @title = 'Categorias de Productos'
     @categories = Category.all
   end
 
@@ -16,7 +17,7 @@ class CategoriesController < ApplicationController
 
   # GET /categories/new
   def new
-    @titulo = 'Nueva catgoria'
+    @title = 'Nueva catgoria'
     @category = Category.new
   end
 

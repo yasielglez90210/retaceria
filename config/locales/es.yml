@@ -49,3 +49,8 @@ es:
         confirmation: "Las contraseñas no coinciden"
        password:
         too_short: "Contraseña demasiada corta"
+        blank: "Debe ingresar una contraseña"
+       email:
+        blank: "Debe ingresar un correo"
+       username:
+        too_short: "Usuario demasiado corto"

@@ -1,6 +1,44 @@
-.mt-0{
+.mt-0 {
     margin-top: 0 !important;
 }
+
 .login-box {
     margin: 10% auto auto;
+}
+
+a {
+    color: #000000;
+}
+
+.back {
+    text-align: center;
+    padding: 23px 0 0 20px;
+    margin-left: 20px;
+    width: 40px !important;
+}
+
+.content-header {
+    position: relative;
+    padding: 25px 15px 20px 15px;
+}
+
+.content-header h1 {
+    display: inline-block;
+}
+
+.content-header .btn {
+    margin-bottom: 5px;
+}
+
+.ta-left{
+    text-align: left !important;
+}
+
+.ta-right{
+    text-align: right !important;
+}
+
+form p.small{
+    color: #adadad;
+    margin-bottom: 20px;
 }

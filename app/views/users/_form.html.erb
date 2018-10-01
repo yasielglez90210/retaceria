@@ -1,49 +1,77 @@
-<%= form_with(model: user, local: true, :html => {autocomplete: "off"}) do |form| %>
-    <% if user.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<div class="box">
+  <%= form_with(model: user, local: true, html: {class: 'form-horizontal', autocomplete: 'off'}) do |form| %>
+    <div class="box-body">
+      <br>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= form.label :name, 'Nombre y apellidos', class: 'col-sm-4 control-label ta-left' %>
+            <div class="col-sm-8">
+              <%= form.text_field :name, id: :name, class: 'form-control' %>
+            </div>
+          </div>
 
-          <ul>
-            <% user.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-            <% end %>
-          </ul>
+          <div class="form-group">
+            <%= form.label :phone, 'Teléfono', class: 'col-sm-2 control-label ta-left' %>
+            <div class="col-sm-10">
+              <%= form.text_field :phone, id: :phone, class: 'form-control' %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= form.label :email, 'Mail', class: 'col-sm-2 control-label ta-left' %>
+            <div class="col-sm-10">
+              <%= form.text_field :email, id: :email, class: 'form-control' %>
+            </div>
+          </div>
         </div>
-    <% end %>
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= form.label :username, 'Usuario', class: 'col-sm-2 control-label ta-left' %>
+            <div class="col-sm-10">
+              <%= form.text_field :username, id: :username, class: 'form-control' %>
+            </div>
+            <br>
+          </div>
+          <p class="small"><i>Para el 1er acceso la contraseña será igual que el usuario</i></p>
 
-    <div class="field">
-      <%= form.label :name, 'Nombre y apellidos' %>
-      <%= form.text_field :name, id: :name %>
+
+          <%= form.hidden_field :password, id: :password, value: 'pas' %>
+
+          <div class="form-group">
+            <%= form.label :role_id, 'Rol', class: 'col-sm-2 control-label ta-left' %>
+            <div class="col-sm-10">
+              <select name="user[role_id]" id="role_id" class="form-control">
+                <% @roles.each do |rol| %>
+                  <option value="<%= rol.id %>"><%= rol.name %></option>
+                <% end %>
+              </select>
+            </div>
+          </div>
+          <p class="small"><i>Para el 1er acceso el código será 1234</i></p>
+        </div>
+
+
+        <div class="col-md-12">
+          <div class="actions">
+            <%= form.submit 'Guardar', class: 'btn btn-default pull-right' %>
+          </div>
+        </div>
+      </div>
     </div>
+  <% end %>
+</div>
 
-    <div class="field">
-      <%= form.label :email, 'Correo' %>
-      <%= form.text_field :email, id: :email %>
-    </div>
+<% content_for :otherscripts do %>
 
-    <div class="field">
-      <%= form.label :username, 'Usuario' %>
-      <%= form.text_field :username, id: :username %>
-    </div>
-    <div class="field">
-      <%= form.label :phone, 'Teléfono' %>
-      <%= form.text_field :phone, id: :phone %>
-    </div>
-
-      <%= form.hidden_field :password, id: :password,value: 'pas' %>
-
-    <div class="field">
-      <%= form.label :role_id, 'Rol' %>
-      <select name="user[role_id]" id="role_id">
-        <% @roles.each do |rol| %>
-            <option value="<%= rol.id %>"><%= rol.name %></option>
+  <% if user.errors.any? %>
+    <script>
+        <% user.errors.full_messages.each do |err| %>
+        <% if err != 'Debe ingresar una contraseña' %>
+        toastr.error('<%= err %>');
         <% end %>
-      </select>
-    </div>
+        <% end %>
+    </script>
+  <% end %>
 
-
-
-    <div class="actions">
-      <%= form.submit %>
-    </div>
 <% end %>
