@@ -1,6 +1,7 @@
 class ProvidersController < ApplicationController
   before_action :set_provider, only: [:show, :edit, :update, :destroy]
-  before_action :autheticate_administrador!
+  before_action :autheticate_administrator!
+  layout 'dashboard'
 
   # GET /providers
   # GET /providers.json

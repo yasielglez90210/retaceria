@@ -1,7 +1,7 @@
 class ColorsController < ApplicationController
   before_action :set_color, only: [:show, :edit, :update, :destroy]
   layout 'dashboard'
-  before_action :autheticate_administrador!
+  before_action :autheticate_administrator!
 
   # GET /colors
   # GET /colors.json

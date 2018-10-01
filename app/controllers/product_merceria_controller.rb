@@ -1,6 +1,6 @@
 class ProductMerceriaController < ApplicationController
   before_action :set_product_mercerium, only: [:show, :edit, :update, :destroy]
-
+  layout 'dashboard'
   # GET /product_merceria
   # GET /product_merceria.json
   def index

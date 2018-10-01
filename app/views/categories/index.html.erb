@@ -1,9 +1,4 @@
-<section class="content-header">
-  <h1 class="mt-0">
-    <%= @title %>
-  </h1>
-  <%= link_to 'crear nueva categoría', new_category_path, class: 'btn btn-default pull-right' %>
-</section>
+<%= render 'partials/content_header', back: false,backPath:library_index_path ,title: @title,add:1,text:'Nueva categoría',path_action: new_category_path %>
 <section class="content">
   <div class="box">
     <!-- /.box-header -->

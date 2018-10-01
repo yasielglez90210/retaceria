@@ -1,9 +1,4 @@
-<section class="content-header">
-  <h1 class="mt-0">
-    <%= @title %>
-  </h1>
-  <%= link_to '<i class="fa fa-plus"></i> Nuevo usuario'.html_safe , new_user_path, class: 'btn btn-default pull-right' %>
-</section>
+<%= render 'partials/content_header', back: false,backPath:'' ,title: @title,add:1,text:'<i class="fa fa-plus"></i> Nuevo usuario',path_action: new_user_path %>
 <section class="content">
   <div class="box">
     <!-- /.box-header -->
@@ -20,8 +15,8 @@
           <tr>
             <td><%= user.username %></td>
             <td><%= user.role.name %></td>
-            <td style="width: 50px;"><%= link_to '', user, class: 'fa fa-eye' %></td>
-            <td style="width: 50px;"><%= link_to '', edit_user_path(user), class: 'fa fa-pencil' %></td>
+            <td class="width-50"><%= link_to '', user, class: 'fa fa-eye' %></td>
+            <td class="width-50"><%= link_to '', edit_user_path(user), class: 'fa fa-pencil' %></td>
           </tr>
         <% end %>
         </tbody>

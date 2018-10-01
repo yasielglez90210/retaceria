@@ -1,4 +1,66 @@
-<p id="notice"><%= notice %></p>
+<%= render 'partials/content_header', back: true, backPath: users_path, title: '', add: 0, text: '', path_action: @user, item: 'el usuario' %>
+<section class="content">
+  <div class="box">
+    <div class="box-body">
+      <br>
+      <div class="row form-horizontal">
+        <div class="col-md-6">
+          <div class="form-group">
+            <div class="show-property">
+              <label>
+                <span class="show-key">Nombre y apellido:</span>
+                <span class="show-value" style="left:35%;"><%= @user.name %></span>
+              </label>
+            </div>
+          </div>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+          <div class="form-group">
+            <div class="show-property">
+              <label>
+                <span class="show-key">Télefono:</span>
+                <span class="show-value" style="left:35%;"><%= @user.phone %></span>
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="show-property">
+              <label>
+                <span class="show-key">Correo:</span>
+                <span class="show-value" style="left:35%;"><%= @user.email %></span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <div class="show-property">
+              <label>
+                <span class="show-key">Usuario:</span>
+                <span class="show-value"><%= @user.username %></span>
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="show-property">
+              <label>
+                <span class="show-key">Rol:</span>
+                <span class="show-value"><%= @user.role.name %></span>
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="show-property">
+              <label>
+                <span class="show-key">Creación:</span>
+                <span class="show-value"><%= @user.created_at.strftime("%m/%d/%Y")%></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.box-body -->
+  </div>
+</section>
+
+

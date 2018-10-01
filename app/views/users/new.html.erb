@@ -1,8 +1,4 @@
-<section class="content-header">
-  <h1 class="mt-0">
-    <%= @title %>
-  </h1>
-</section>
+<%= render 'partials/content_header', back: true,backPath:users_path ,title: @title,add:2,text:'',path_action: '' %>
 <section class="content">
 <%= render 'form', user: @user, roles: @roles %>
 </section>

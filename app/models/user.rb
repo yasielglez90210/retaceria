@@ -5,8 +5,7 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :username, uniqueness: true, length: {minimum: 5}
 
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable
 
   before_create do
     self.key = 1234 if is_sale_retaceria?

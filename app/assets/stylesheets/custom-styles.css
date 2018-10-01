@@ -1,5 +1,37 @@
+
+.show-property {
+    padding-left: 50px;
+    padding-top: 7px;
+    position: relative;
+}
+
+.show-key {
+    margin-right: 20px;
+    font-size: 16px;
+}
+
+.show-value {
+    font-weight: 400;
+    font-size: 15px;
+    position: absolute;
+    top: 22%;
+    left: 28%;
+}
+
 .mt-0 {
     margin-top: 0 !important;
+}
+
+.ml--8 {
+    margin-left: -8px !important;
+}
+
+.fs-16 {
+    font-size: 16px !important;
+}
+
+.width-50 {
+    width: 50px;
 }
 
 .login-box {
@@ -12,8 +44,6 @@ a {
 
 .back {
     text-align: center;
-    padding: 23px 0 0 20px;
-    margin-left: 20px;
     width: 40px !important;
 }
 
@@ -30,15 +60,15 @@ a {
     margin-bottom: 5px;
 }
 
-.ta-left{
+.ta-left {
     text-align: left !important;
 }
 
-.ta-right{
+.ta-right {
     text-align: right !important;
 }
 
-form p.small{
+form p.small {
     color: #adadad;
     margin-bottom: 20px;
 }

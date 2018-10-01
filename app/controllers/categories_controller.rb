@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
   layout 'dashboard'
-  before_action :autheticate_administrador!
+  before_action :autheticate_administrator!
 
   # GET /categories
   # GET /categories.json

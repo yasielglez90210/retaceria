@@ -1,0 +1,18 @@
+<section class="content-header">
+
+  <div class=" back" style="display: inline-block">
+    <% if back %>
+        <a href="<%= backPath %>"><i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i></a>
+    <% end %>
+  </div>
+  <h1 class="mt-0">
+    <%= title %>
+  </h1>
+  <% if add==1 %>
+      <%= link_to text.html_safe, path_action , class: 'btn btn-default pull-right' %>
+  <% end %>
+  <% if add==0 %>
+      <%= link_to '', path_action, class: 'fa fa-trash pull-right fa-2x', method: :delete, data: {confirm: "¿Esta seguro que desea eliminar #{item}?"} %>
+  <% end %>
+
+</section>

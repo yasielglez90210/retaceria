@@ -146,7 +146,7 @@
                       if (response.status == 'created') {
                           $("#color_name").val('');
                           $('#newColorModal').modal('hide');
-                          $('#allColors').append(`<label class="col-sm-4">
+                          $('#allColors').append(`<label4"> class="col-sm-
                                                                            <input type="checkbox" name="colors[]" id="colors_" value="` + response.data.id + `">` + response.data.name + `
                                                                         </label>`);
                           toastr.success(response.flash.success);

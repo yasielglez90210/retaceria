@@ -46,8 +46,8 @@ ActiveRecord::Schema.define(version: 20180930213357) do
     t.string "name", default: "", null: false
     t.string "article"
     t.integer "cost"
-    t.integer "price", default: 10, null: false
-    t.integer "initial_stock", default: 10, null: false
+    t.integer "price", null: false
+    t.integer "initial_stock", null: false
     t.integer "minimum"
     t.integer "current_stock"
     t.datetime "created_at", null: false
@@ -67,8 +67,8 @@ ActiveRecord::Schema.define(version: 20180930213357) do
   create_table "retaceria", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", default: "", null: false
     t.bigint "category_id"
-    t.integer "cost", default: 1, null: false
-    t.integer "rinde", default: 1, null: false
+    t.integer "cost", null: false
+    t.integer "rinde", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_retaceria_on_category_id"

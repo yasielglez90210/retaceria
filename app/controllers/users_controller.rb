@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :set_roles, :autheticate_administrador!
+  before_action :set_roles, :autheticate_administrator!
   layout 'dashboard'
   # GET /users
   # GET /users.json
@@ -15,7 +15,6 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
-    @back = true
     @title = 'Nuevo usuario'
     @user = User.new
   end
