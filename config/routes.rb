@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :providers
+  resources :product_merceria
   root to: 'application#dashboard'
   resources :retaceria
   resources :colors

@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180928190227) do
+ActiveRecord::Schema.define(version: 20180930213357) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "name"
+    t.string "name", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "colors", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "name"
+    t.string "name", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -33,18 +33,49 @@ ActiveRecord::Schema.define(version: 20180928190227) do
     t.index ["retacerium_id"], name: "index_has_colors_on_retacerium_id"
   end
 
-  create_table "retaceria", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "name"
-    t.bigint "category_id"
+  create_table "has_products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "provider_id"
+    t.bigint "product_mercerium_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_mercerium_id"], name: "index_has_products_on_product_mercerium_id"
+    t.index ["provider_id"], name: "index_has_products_on_provider_id"
+  end
+
+  create_table "product_merceria", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name", default: "", null: false
+    t.string "article"
     t.integer "cost"
-    t.integer "rinde"
+    t.integer "price", default: 10, null: false
+    t.integer "initial_stock", default: 10, null: false
+    t.integer "minimum"
+    t.integer "current_stock"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "providers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.string "fiction_name"
+    t.integer "phone"
+    t.string "email"
+    t.integer "cuit"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "retaceria", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name", default: "", null: false
+    t.bigint "category_id"
+    t.integer "cost", default: 1, null: false
+    t.integer "rinde", default: 1, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_retaceria_on_category_id"
   end
 
   create_table "roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "name"
+    t.string "name", default: "", null: false
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -76,5 +107,7 @@ ActiveRecord::Schema.define(version: 20180928190227) do
 
   add_foreign_key "has_colors", "colors"
   add_foreign_key "has_colors", "retaceria"
+  add_foreign_key "has_products", "product_merceria"
+  add_foreign_key "has_products", "providers"
   add_foreign_key "retaceria", "categories"
 end
