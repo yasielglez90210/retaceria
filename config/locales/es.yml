@@ -39,9 +39,18 @@ es:
       attributes:
        name:
         taken: "La categoria ya se encuentra registrada"
+     color:
+      attributes:
+       name:
+        taken: "El color ya se encuentra registrado"
      user:
       attributes:
        password_confirmation:
         confirmation: "Las contraseñas no coinciden"
        password:
         too_short: "Contraseña demasiada corta"
+        blank: "Debe ingresar una contraseña"
+       email:
+        blank: "Debe ingresar un correo"
+       username:
+        too_short: "Usuario demasiado corto"

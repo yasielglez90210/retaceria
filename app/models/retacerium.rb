@@ -1,4 +1,8 @@
 class Retacerium < ApplicationRecord
+  validates :name, presence: { message: "Es necesario el nombre del producto" }
+  validates :cost, presence: { message: "Es necesario el campo Costo" }
+  validates :rinde, presence: { message: "Es necesario el campo Rinde" }
+
   belongs_to :category
   has_many :has_colors
   has_many :colors, through: :has_colors

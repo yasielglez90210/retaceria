@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'library/index'
+
   resources :providers
   resources :product_merceria
   root to: 'application#dashboard'

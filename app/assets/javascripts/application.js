@@ -17,3 +17,4 @@
 //= require jquery.slimscroll.min
 //= require fastclick
 //= require adminlte
+

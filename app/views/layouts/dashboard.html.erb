@@ -21,26 +21,27 @@
   <%= render 'partials/header' %>
   <%= render 'partials/sidebar' %>
   <div class="content-wrapper">
-    <section class="content-header">
-      <h1 class="mt-0">
-        <%= @titulo %>
-      </h1>
-
-    </section>
-    <section class="content">
-      <%= yield %>
-    </section>
+    <div class="row">
+      <div class="col-xs-1 back">
+        <% if @back %>
+          <a href="<%= request.referer %>"><i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i></a>
+        <% end %>
+      </div>
+      <div class="col-xs-11">
+        <%= yield %>
+      </div>
+    </div>
   </div>
-  <%= render 'partials/footer' %>
+  <%#= render 'partials/footer' %>
 </div>
 <%= javascript_include_tag 'application' %>
 <% unless flash.empty? %>
-    <script type="text/javascript">
-        <% flash.each do |f| %>
-        <% type = f[0].to_s.gsub('alert', 'error').gsub('notice', 'info') %>
-        toastr['<%= type %>']('<%= f[1] %>');
-        <% end %>
-    </script>
+  <script type="text/javascript">
+      <% flash.each do |f| %>
+      <% type = f[0].to_s.gsub('alert', 'error').gsub('notice', 'info') %>
+      toastr['<%= type %>']('<%= f[1] %>');
+      <% end %>
+  </script>
 <% end %>
 <%= yield :otherscripts %>
 </body>

@@ -1,43 +1,28 @@
-<!--<p id="notice"><%= notice %></p>-->
-
-<div class="box">
-  <div class="box-header">
-
-
-    <div class="box-tools">
-      <div class="input-group input-group-sm" style="width: 200px;">
-        <input type="text" name="table_search" class="form-control pull-right" placeholder="Buscar">
-
-        <div class="input-group-btn">
-          <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- /.box-header -->
-  <div class="box-body table-responsive">
-    <table class="table table-hover">
-      <thead>
-      <tr>
-        <th>Nombre</th>
-        <th colspan="3"></th>
-      </tr>
-      </thead>
-      <tbody>
-      <% @categories.each do |category| %>
+<section class="content-header">
+  <h1 class="mt-0">
+    <%= @title %>
+  </h1>
+  <%= link_to 'crear nueva categoría', new_category_path, class: 'btn btn-default pull-right' %>
+</section>
+<section class="content">
+  <div class="box">
+    <!-- /.box-header -->
+    <div class="box-body table-responsive">
+      <table class="table table-striped">
+        <tbody>
+        <% @categories.each do |category| %>
           <tr>
             <td><%= category.name %></td>
-            <td><%= link_to 'Ver', category %></td>
-            <td><%= link_to 'Editar', edit_category_path(category) %></td>
-            <td><%= link_to 'Eliminar', category, method: :delete, data: { confirm: '¿Esta seguro que desea eliminar la Categoría?' } %></td>
+            <td style="width: 50px;"><%= link_to '', edit_category_path(category), class: 'fa fa-pencil' %></td>
+            <td style="width: 50px;"><%= link_to '', category, class: 'fa fa-trash', method: :delete, data: {confirm: '¿Esta seguro que desea eliminar la Categoría?'} %></td>
           </tr>
-      <% end %>
-      </tbody>
-    </table>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+    <!-- /.box-body -->
   </div>
-  <!-- /.box-body -->
-</div>
+</section>
 
-<br>
 
-<%= link_to 'New Category', new_category_path %>
+

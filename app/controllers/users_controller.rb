@@ -15,6 +15,8 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
+    @back = true
+    @title = 'Nuevo usuario'
     @user = User.new
   end
 
@@ -25,7 +27,6 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-
     @user = User.new(user_params.to_h.merge(password: params[:user][:username]))
     respond_to do |format|
       if @user.save
