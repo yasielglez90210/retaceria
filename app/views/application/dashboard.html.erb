@@ -3,7 +3,6 @@
 <% content_for :otherscripts do %>
         <script>
           // Para cuando se tenga que trabajar con graficos
-          console.log("<%= @array_json %>");
             var provider = "<%= @array_json %>".replace(/&quot;/g, '\"');
             console.log(provider);
         </script>
