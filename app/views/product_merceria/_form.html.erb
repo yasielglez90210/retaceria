@@ -1,0 +1,52 @@
+<%= form_with(model: product_mercerium, local: true) do |form| %>
+  <% if product_mercerium.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(product_mercerium.errors.count, "error") %> prohibited this product_mercerium from being saved:</h2>
+
+      <ul>
+      <% product_mercerium.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :product_mercerium_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :article %>
+    <%= form.text_field :article, id: :product_mercerium_article %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cost %>
+    <%= form.number_field :cost, id: :product_mercerium_cost %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.number_field :price, id: :product_mercerium_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :initial_stock %>
+    <%= form.number_field :initial_stock, id: :product_mercerium_initial_stock %>
+  </div>
+
+  <div class="field">
+    <%= form.label :minimum %>
+    <%= form.number_field :minimum, id: :product_mercerium_minimum %>
+  </div>
+
+  <div class="field">
+    <%= form.label :current_stock %>
+    <%= form.number_field :current_stock, id: :product_mercerium_current_stock %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
