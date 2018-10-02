@@ -1,6 +1,4 @@
-<h1>Editing User</h1>
-
+<%= render 'partials/content_header', back: true, backPath: users_path, title: '', add: 2, text: '', path_action: '' %>
+<section class="content">
 <%= render 'form', user: @user %>
-
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+</section>

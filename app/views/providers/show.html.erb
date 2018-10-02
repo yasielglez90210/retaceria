@@ -1,29 +1,56 @@
-<p id="notice"><%= notice %></p>
+<%= render 'partials/content_header', back: true, backPath: providers_path, title: '', add: 0, text: '', path_action: @provider, item: 'el proveedor' %>
+<section class="content">
+  <div class="box">
+    <div class="box-body">
+      <div class="row form-horizontal">
+        <div class="col-md-6">
+          <div class="form-group">
+            <div class="show-property">
+              <label>
+                <span class="show-key">Proveedor:</span>
+                <span class="show-value" ><%= @provider.name %></span>
+              </label>
+            </div>
+          </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @provider.name %>
-</p>
+          <div class="form-group">
+            <div class="show-property">
+              <label>
+                <span class="show-key">Fiction name:</span>
+                <span class="show-value" ><%= @provider.name %></span>
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="show-property">
+              <label>
+                <span class="show-key">Correo:</span>
+                <span class="show-value" ><%= @provider.email %></span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <div class="show-property">
+              <label>
+                <span class="show-key">CUIT:</span>
+                <span class="show-value"><%= @provider.cuit %></span>
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="show-property">
+              <label>
+                <span class="show-key">Teléfono:</span>
+                <span class="show-value"><%= @provider.phone%></span>
+              </label>
+            </div>
+          </div>
 
-<p>
-  <strong>Fiction name:</strong>
-  <%= @provider.fiction_name %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @provider.phone %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @provider.email %>
-</p>
-
-<p>
-  <strong>Cuit:</strong>
-  <%= @provider.cuit %>
-</p>
-
-<%= link_to 'Edit', edit_provider_path(@provider) %> |
-<%= link_to 'Back', providers_path %>
+        </div>
+      </div>
+    </div>
+    <!-- /.box-body -->
+  </div>
+</section>

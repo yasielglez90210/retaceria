@@ -1,35 +1,35 @@
-<p id="notice"><%= notice %></p>
+<%= render 'partials/content_header', back: false,backPath:'' ,title: @title,add:1,text:'<i class="fa fa-plus"></i> Nuevo Provedor',path_action: new_provider_path %>
+<section class="content">
+  <div class="box">
+    <!-- /.box-header -->
+    <div class="box-body table-responsive">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Proveedor</th>
+          <th>Fiction name</th>
+          <th>Teléfono</th>
+          <th>Correo</th>
+          <th>Cuit</th>
+          <th colspan="2"></th>
+        </tr>
+        </thead>
 
-<h1>Providers</h1>
+        <tbody>
+        <% @providers.each do |provider| %>
+            <tr>
+              <td><%= provider.name %></td>
+              <td><%= provider.fiction_name %></td>
+              <td><%= provider.phone %></td>
+              <td><%= provider.email %></td>
+              <td><%= provider.cuit %></td>
+              <td><%= link_to '', provider , class: 'fa fa-eye'%></td>
+              <td><%= link_to '', edit_provider_path(provider), class: 'fa fa-pencil' %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Fiction name</th>
-      <th>Phone</th>
-      <th>Email</th>
-      <th>Cuit</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @providers.each do |provider| %>
-      <tr>
-        <td><%= provider.name %></td>
-        <td><%= provider.fiction_name %></td>
-        <td><%= provider.phone %></td>
-        <td><%= provider.email %></td>
-        <td><%= provider.cuit %></td>
-        <td><%= link_to 'Show', provider %></td>
-        <td><%= link_to 'Edit', edit_provider_path(provider) %></td>
-        <td><%= link_to 'Destroy', provider, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Provider', new_provider_path %>

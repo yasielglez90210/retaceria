@@ -54,3 +54,9 @@ es:
         blank: "Debe ingresar un correo"
        username:
         too_short: "Usuario demasiado corto"
+     retacerium:
+      attributes:
+       category:
+        required: "Es necesario el campo categoría"
+
+

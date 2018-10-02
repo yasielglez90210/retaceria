@@ -1,5 +1,5 @@
-<h1>New Provider</h1>
-
+<%= render 'partials/content_header', back: true,backPath:providers_path ,title: @title,add:2,text:'',path_action: '' %>
+<section class="content">
 <%= render 'form', provider: @provider %>
+</section>
 
-<%= link_to 'Back', providers_path %>

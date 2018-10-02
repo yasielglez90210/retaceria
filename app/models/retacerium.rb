@@ -1,7 +1,7 @@
 class Retacerium < ApplicationRecord
-  validates :name, presence: { message: "Es necesario el nombre del producto" }
-  validates :cost, presence: { message: "Es necesario el campo Costo" }
-  validates :rinde, presence: { message: "Es necesario el campo Rinde" }
+  validates :name, presence: {message: "Es necesario el nombre del producto"}
+  validates :cost, presence: {message: "Es necesario el campo Costo"}
+  validates :rinde, presence: {message: "Es necesario el campo Rinde"}
 
   belongs_to :category
   has_many :has_colors
@@ -10,18 +10,21 @@ class Retacerium < ApplicationRecord
   after_update :update_colors
 
   def arraycolors=(value)
-    @colors = value
+    @colors = value || []
   end
 
   def update_colors
-    has_colors = HasColor.where("retacerium_id = ?", self.id)
-    has_colors.each do |item|
-      item.destroy
+    if @colors.any?
+      has_colors = HasColor.where("retacerium_id = ?", self.id)
+      has_colors.each do |item|
+        item.destroy
+      end
+
+      @colors.each do |color_id|
+        HasColor.create(color_id: color_id, retacerium_id: self.id)
+      end
     end
 
-    @colors.each do |color_id|
-      HasColor.create(color_id: color_id, retacerium_id: self.id)
-    end
   end
 
 

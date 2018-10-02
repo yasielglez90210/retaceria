@@ -29,10 +29,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params.to_h.merge(password: params[:user][:username]))
     respond_to do |format|
       if @user.save
-        format.html {redirect_to @user, notice: 'User was successfully created.'}
+        format.html {redirect_to @user,:flash => {success: 'Categoría creada exitosamente'}}
         format.json {render :show, status: :created, location: @user}
       else
-        format.html {render :new}
+        format.html {render :new,:flash => {error: 'Error al editar el usuario'}}
         format.json {render json: @user.errors, status: :unprocessable_entity}
       end
     end
@@ -43,7 +43,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html {redirect_to @user, notice: 'User was successfully updated.'}
+        format.html {redirect_to @user, :flash => {success: 'Usuario editado exitosamente'} }
         format.json {render :show, status: :ok, location: @user}
       else
         format.html {render :edit}
@@ -57,7 +57,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html {redirect_to users_url, notice: 'User was successfully destroyed.'}
+      format.html {redirect_to users_url, :flash => {success: 'Usuario eliminado exitosamente'} }
       format.json {head :no_content}
     end
   end
