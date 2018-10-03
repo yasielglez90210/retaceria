@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params.to_h.merge(password: params[:user][:username]))
     respond_to do |format|
       if @user.save
-        format.html {redirect_to @user,:flash => {success: 'Categoría creada exitosamente'}}
+        format.html {redirect_to @user,:flash => {success: 'Usuario creado exitosamente'}}
         format.json {render :show, status: :created, location: @user}
       else
         format.html {render :new,:flash => {error: 'Error al editar el usuario'}}

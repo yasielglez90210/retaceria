@@ -1,22 +1,33 @@
-<%= form_with(model: category, local: true, :html => {autocomplete: "off"}) do |form| %>
-    <div class="field">
-      <%= form.label :name, 'Título' %>
-      <%= form.text_field :name, id: :category_name %>
-    </div>
+<div class="box">
+  <%= form_with(model: category, local: true, :html => {autocomplete: "off"}) do |form| %>
+      <div class="box-body">
 
-    <div class="actions">
-      <%= form.submit 'Guardar' %>
-    </div>
-<% end %>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= form.label :name, 'Título', class: 'col-sm-4 control-label ta-left' %>
+              <%= form.text_field :name, id: :category_name, class: 'form-control' %>
+            </div>
+          </div>
 
-<% content_for :otherscripts do %>
+          <div class="col-md-12">
+            <div class="actions">
+              <%= form.submit 'Guardar', class: 'btn btn-default' %>
+            </div>
+          </div>
+        </div>
+      </div>
+  <% end %>
 
-    <% if category.errors.any? %>
-        <script>
-            <% category.errors.full_messages.each do |err| %>
-            toastr.error('<%= err %>');
-            <% end %>
-        </script>
-    <% end %>
+  <% content_for :otherscripts do %>
 
-<% end %>
+      <% if category.errors.any? %>
+          <script>
+              <% category.errors.full_messages.each do |err| %>
+              toastr.error('<%= err %>');
+              <% end %>
+          </script>
+      <% end %>
+
+  <% end %>
+</div>

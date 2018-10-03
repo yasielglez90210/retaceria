@@ -31,7 +31,7 @@ class ColorsController < ApplicationController
 
     respond_to do |format|
       if @color.save
-        format.html {redirect_to @color, notice: 'Color was successfully created.'}
+        format.html {redirect_to @color,:flash => {success: 'Color creado exitosamente'}}
         format.json {render json: {data: @color, status: :created, :flash => {success: 'Color creado exitosamente'}}}
       else
         format.html {render :new}
@@ -45,7 +45,7 @@ class ColorsController < ApplicationController
   def update
     respond_to do |format|
       if @color.update(color_params)
-        format.html {redirect_to @color, notice: 'Color was successfully updated.'}
+        format.html {redirect_to @color, :flash => {success: 'Color editado exitosamente'} }
         format.json {render :show, status: :ok, location: @color}
       else
         format.html {render :edit}
@@ -63,7 +63,7 @@ class ColorsController < ApplicationController
     end
     @color.destroy
     respond_to do |format|
-      format.html {redirect_to colors_url, notice: 'Color was successfully destroyed.'}
+      format.html {redirect_to colors_url, :flash => {success: 'Color eliminado exitosamente'} }
       format.json {head :no_content}
     end
   end

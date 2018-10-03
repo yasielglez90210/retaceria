@@ -31,7 +31,7 @@ class ProvidersController < ApplicationController
 
     respond_to do |format|
       if @provider.save
-        format.html { redirect_to @provider, notice: 'Proveedor creado exitosamente' }
+        format.html { redirect_to @provider, :flash => {success: 'Proveedor creado exitosamente'}}
         format.json { render :show, status: :created, location: @provider }
       else
         format.html { render :new,:flash => {error: 'Error al editar el Proveedor'} }

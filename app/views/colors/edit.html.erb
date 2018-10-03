@@ -1,6 +1,4 @@
-<h1>Editing Color</h1>
-
-<%= render 'form', color: @color %>
-
-<%= link_to 'Show', @color %> |
-<%= link_to 'Back', colors_path %>
+<%= render 'partials/content_header', back: true, backPath: colors_path, title: '', add: 2, text: '', path_action: '' %>
+<section class="content">
+  <%= render 'form', color: @color %>
+</section>

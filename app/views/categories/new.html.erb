@@ -1,10 +1,6 @@
-<section class="content-header">
-</section>
-
+<%= render 'partials/content_header', back: true,backPath:categories_path ,title: @title,add:2,text:'',path_action: '' %>
 <section class="content">
   <%= render 'form', category: @category %>
-
-  <%= link_to 'Atras', categories_path %>
 </section>
 
 
