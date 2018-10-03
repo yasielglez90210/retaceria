@@ -10,14 +10,15 @@
 2. Configurar Gitflow: `git flow init -d` para que tome la configuración por
 defecto de ramas.
 3. Base de datos:
-   1. Configuración: copiar el archivo `config/database_example.yml` y guardarlo
-  como `config/database.yml`, utilizando las credenciales con las cuales se configuró MySQL.
+   1. Editar el archivo `config/database.yml` y utilizar las credenciales con las cuales se configuró MySQL.
    2. Creación: `rails db:create`
    3. Migraciones: `rails db:migrate`
    4. Seeds: `rails db:seed`
 4. Iniciar el servidor local con `rails server`.
 5. Acceder mediante [http://localhost:3000](http://localhost:3000).
-6. Usuario: admim, Password: User*123
+6. Credenciales de acceso al sitio:
+   1. Usuario: admim
+   2. Password: User*123
     
 
 
