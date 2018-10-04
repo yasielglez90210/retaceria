@@ -1,0 +1,7 @@
+<% @categories.each do |category| %>
+    <tr>
+      <td><%= category.name %></td>
+      <td style="width: 50px"><%= link_to '', edit_category_path(category),remote: true, class: 'fa fa-pencil' %></td>
+      <td style="width: 50px"><%= link_to '', category, class: 'fa fa-trash', method: :delete, data: {confirm: '¿Está usted seguro que desea eliminar la categoría?'} %></td>
+    </tr>
+<% end %>

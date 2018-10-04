@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html class="fix-height">
 <head>
   <title>Retaceria</title>
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag 'application' %>
+  <%= javascript_include_tag 'application' %>
+
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -30,7 +32,6 @@
   </div>
   <%#= render 'partials/footer' %>
 </div>
-<%= javascript_include_tag 'application' %>
 <% unless flash.empty? %>
   <script type="text/javascript">
       <% flash.each do |f| %>

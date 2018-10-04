@@ -7,7 +7,7 @@ class ColorsController < ApplicationController
   # GET /colors.json
   def index
     @title = 'Colores'
-    @colors = Color.all
+    @colors = Color.all.order(name: :asc)
   end
 
   # GET /colors/1
@@ -45,7 +45,7 @@ class ColorsController < ApplicationController
   def update
     respond_to do |format|
       if @color.update(color_params)
-        format.html {redirect_to @color, :flash => {success: 'Color editado exitosamente'} }
+        format.html {redirect_to colors_path, :flash => {success: 'Color editado exitosamente'} }
         format.json {render :show, status: :ok, location: @color}
       else
         format.html {render :edit}

@@ -5,16 +5,11 @@
     <div class="box-body table-responsive">
       <table class="table table-striped">
         <tbody>
-        <% @categories.each do |category| %>
-          <tr>
-            <td><%= category.name %></td>
-            <td style="width: 50px;"><%= link_to '', edit_category_path(category), class: 'fa fa-pencil' %></td>
-            <td style="width: 50px;"><%= link_to '', category, class: 'fa fa-trash', method: :delete, data: {confirm: '¿Esta seguro que desea eliminar la Categoría?'} %></td>
-          </tr>
-        <% end %>
+        <%= render "index_r" %>
         </tbody>
       </table>
     </div>
+    <div id="product-modal" class="modal fade"></div>
     <!-- /.box-body -->
   </div>
 </section>
