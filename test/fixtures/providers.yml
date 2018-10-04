@@ -2,14 +2,14 @@
 
 one:
   name: MyString
-  fiction_name: MyString
+  razon: MyString
   phone: 1
   email: MyString
   cuit: 1
 
 two:
   name: MyString
-  fiction_name: MyString
+  razon: MyString
   phone: 1
   email: MyString
   cuit: 1

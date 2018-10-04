@@ -12,7 +12,9 @@
 //
 //= require rails-ujs
 //= require turbolinks
-//= require jquery
+//= require jquery2
+//= require datatables
+//= require jquery_ujs
 //= require bootstrap.min
 //= require toastr
 //= require jquery.slimscroll.min

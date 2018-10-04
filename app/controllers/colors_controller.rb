@@ -7,7 +7,11 @@ class ColorsController < ApplicationController
   # GET /colors.json
   def index
     @title = 'Colores'
-    @colors = Color.all.order(name: :asc)
+    # @colors = Color.all.order(name: :asc)
+    respond_to do |format|
+      format.html
+      format.json { render json: ColorDatatable.new(params, view_context: view_context) }
+    end
   end
 
   # GET /colors/1

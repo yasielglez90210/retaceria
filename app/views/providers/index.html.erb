@@ -7,7 +7,7 @@
         <thead>
         <tr>
           <th>Proveedor</th>
-          <th>Fiction name</th>
+          <th>Razón social</th>
           <th>Teléfono</th>
           <th>Correo</th>
           <th>Cuit</th>
@@ -16,20 +16,11 @@
         </thead>
 
         <tbody>
-        <% @providers.each do |provider| %>
-            <tr>
-              <td><%= provider.name %></td>
-              <td><%= provider.fiction_name %></td>
-              <td><%= provider.phone %></td>
-              <td><%= provider.email %></td>
-              <td><%= provider.cuit %></td>
-              <td><%= link_to '', provider , class: 'fa fa-eye'%></td>
-              <td><%= link_to '', edit_provider_path(provider), class: 'fa fa-pencil' %></td>
-            </tr>
-        <% end %>
+        <%= render 'index_r'%>
         </tbody>
       </table>
     </div>
+    <div id="product-modal" class="modal fade bs-example-modal-lg"></div>
   </div>
 </section>
 

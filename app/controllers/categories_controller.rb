@@ -6,9 +6,12 @@ class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   def index
-    @back = true
     @title = 'Categorias de Productos'
-    @categories = Category.all.order(name: :asc)
+    # @categories = Category.all.order(name: :asc)
+    respond_to do |format|
+      format.html
+      format.json { render json: CategoryDatatable.new(params, view_context: view_context) }
+    end
   end
 
   # GET /categories/1
@@ -30,7 +33,6 @@ class CategoriesController < ApplicationController
   # POST /categories.json
   def create
     @category = Category.new(category_params)
-
     respond_to do |format|
       if @category.save
         format.html { redirect_to @category ,:flash => {success: 'Categoría creada exitosamente'}}

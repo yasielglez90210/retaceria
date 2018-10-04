@@ -18,4 +18,5 @@
  *= require 'all-skins.min'
  *= require 'custom-styles'
  *require 'skin-blue-light.min'
+ *= require datatables
  */

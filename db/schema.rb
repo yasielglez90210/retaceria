@@ -10,18 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180930213357) do
+ActiveRecord::Schema.define(version: 20181004070621) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_delete", default: false
   end
 
   create_table "colors", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_delete", default: false
   end
 
   create_table "has_colors", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -56,12 +58,13 @@ ActiveRecord::Schema.define(version: 20180930213357) do
 
   create_table "providers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
-    t.string "fiction_name"
+    t.string "razon"
     t.integer "phone"
     t.string "email"
     t.integer "cuit"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_delete", default: false
   end
 
   create_table "retaceria", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

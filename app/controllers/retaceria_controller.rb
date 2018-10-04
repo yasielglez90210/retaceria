@@ -79,11 +79,11 @@ class RetaceriaController < ApplicationController
   end
 
   def set_categories
-    @categories = Category.all
+    @categories = Category.active
   end
 
   def set_colors
-    @colors = Color.all
+    @colors = Color.all.active
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

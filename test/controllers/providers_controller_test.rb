@@ -17,7 +17,7 @@ class ProvidersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create provider" do
     assert_difference('Provider.count') do
-      post providers_url, params: { provider: { cuit: @provider.cuit, email: @provider.email, fiction_name: @provider.fiction_name, name: @provider.name, phone: @provider.phone } }
+      post providers_url, params: { provider: { cuit: @provider.cuit, email: @provider.email, razon: @provider.razon, name: @provider.name, phone: @provider.phone } }
     end
 
     assert_redirected_to provider_url(Provider.last)
@@ -34,7 +34,7 @@ class ProvidersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update provider" do
-    patch provider_url(@provider), params: { provider: { cuit: @provider.cuit, email: @provider.email, fiction_name: @provider.fiction_name, name: @provider.name, phone: @provider.phone } }
+    patch provider_url(@provider), params: { provider: { cuit: @provider.cuit, email: @provider.email, razon: @provider.razon, name: @provider.name, phone: @provider.phone } }
     assert_redirected_to provider_url(@provider)
   end
 

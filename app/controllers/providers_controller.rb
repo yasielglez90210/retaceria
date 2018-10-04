@@ -45,7 +45,7 @@ class ProvidersController < ApplicationController
   def update
     respond_to do |format|
       if @provider.update(provider_params)
-        format.html { redirect_to @provider, :flash => {success: 'Proveedor editado exitosamente'} }
+        format.html { redirect_to providers_path, :flash => {success: 'Proveedor editado exitosamente'} }
         format.json { render :show, status: :ok, location: @provider }
       else
         format.html { render :edit }
@@ -72,6 +72,6 @@ class ProvidersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def provider_params
-      params.require(:provider).permit(:name, :fiction_name, :phone, :email, :cuit)
+      params.require(:provider).permit(:name, :razon, :phone, :email, :cuit)
     end
 end
