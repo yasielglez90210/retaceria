@@ -1,0 +1,49 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <%= form_with(model: @provider, html: {style: "display:inline;", class: 'form-horizontal',autocomplete: "off"}) do |f| %>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <%= f.label :name, 'Proveedor', class: 'col-sm-3 control-label ta-left' %>
+                <div class="col-sm-9">
+                  <%= f.text_field :name, id: :name, class: 'form-control' %>
+                </div>
+              </div>
+              <div class="form-group">
+                <%= f.label :razon, 'Razón social', class: 'col-sm-3 control-label ta-left' %>
+                <div class="col-sm-9">
+                  <%= f.text_field :razon, id: :provider_razon, class: 'form-control' %>
+                </div>
+              </div>
+              <div class="form-group">
+                <%= f.label :phone, 'Teléfono', class: 'col-sm-3 control-label ta-left' %>
+                <div class="col-sm-9">
+                  <%= f.number_field :phone, id: :provider_phone, class: 'form-control' %>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <%= f.label :email, 'Correo', class: 'col-sm-3 control-label ta-left' %>
+                <div class="col-sm-9">
+                  <%= f.email_field :email, id: :provider_email, class: 'form-control' %>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :cuit, 'CUIT', class: 'col-sm-3 control-label ta-left' %>
+                <div class="col-sm-9">
+                  <%= f.number_field :cuit, id: :provider_cuit, class: 'form-control' %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <%= f.submit 'Guardar', class: "btn btn-primary" %>
+          <%= link_to "Cancel", "#", class: "btn", data: {dismiss: "modal"} %>
+        </div>
+    <% end %>
+  </div>
+</div>
