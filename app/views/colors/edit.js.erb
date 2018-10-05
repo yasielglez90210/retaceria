@@ -1,5 +1,15 @@
-$( document ).ready(function() {
+$(document).ready(function () {
 
 });
-$("#product-modal").html("<%= escape_javascript(render 'edit_r') %>")
-$("#product-modal").modal("show")
+$("#product-modal").html("<%= escape_javascript(render 'edit_r') %>");
+$("#product-modal").modal("show");
+
+<% if @color.errors.any? %>
+<% @color.errors.full_messages.each do |err| %>
+toastr.options.closeButton = true;
+toastr.error('<%= err %>');
+<% end %>
+
+<% end %>
+
+

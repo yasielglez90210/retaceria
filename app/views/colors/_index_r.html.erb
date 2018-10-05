@@ -1,7 +1,0 @@
-<% @colors.each do |color| %>
-    <tr>
-      <td><%= color.name %></td>
-      <td style="width: 50px"><%= link_to '', edit_color_path(color),remote: true, class: 'fa fa-pencil' %></td>
-      <td style="width: 50px"><%= link_to '', color, class: 'fa fa-trash', method: :delete, data: {confirm: '¿Está usted seguro que desea eliminar el color?'} %></td>
-    </tr>
-<% end %>

@@ -1,6 +1,11 @@
-$( document ).ready(function() {
-console.log('entro');
-});
+
 $("#product-modal").html("<%= escape_javascript(render 'edit_r') %>")
 $("#product-modal").modal("show")
 
+<% if @provider.errors.any? %>
+<% @provider.errors.full_messages.each do |err| %>
+toastr.options.closeButton = true;
+toastr.error('<%= err %>');
+<% end %>
+
+<% end %>

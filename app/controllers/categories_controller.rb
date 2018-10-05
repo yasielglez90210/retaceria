@@ -38,7 +38,7 @@ class CategoriesController < ApplicationController
         format.html { redirect_to @category ,:flash => {success: 'Categoría creada exitosamente'}}
         format.json { render :show, status: :created, location: @category }
       else
-        format.html { render :new,:flash => {error: 'Error al editar '}}
+        format.html { render :new,:flash => {error: 'Error al crear la categoria '}}
         format.json { render json: @category.errors, status: :unprocessable_entity }
       end
     end
@@ -54,6 +54,7 @@ class CategoriesController < ApplicationController
         format.json { render :show, status: :ok, location: @category }
       else
         format.html { render :edit }
+        format.js {render :edit}
         format.json { render json: @category.errors, status: :unprocessable_entity }
       end
     end
@@ -62,7 +63,12 @@ class CategoriesController < ApplicationController
   # DELETE /categories/1
   # DELETE /categories/1.json
   def destroy
-    @category.destroy
+    if @category.retaceriums.any?
+       @category.is_delete = true
+       @category.save
+    else
+      @category.destroy
+    end
     respond_to do |format|
       format.html { redirect_to categories_url, :flash => {success: 'Categoría eliminada exitosamente'} }
       format.json { head :no_content }

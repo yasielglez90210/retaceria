@@ -1,5 +1,14 @@
 $( document ).ready(function() {
-
+console.log('ready');
 });
 $("#product-modal").html("<%= escape_javascript(render 'edit_r') %>")
-$("#product-modal").modal("show")
+$("#product-modal").modal("show");
+
+<% if @category.errors.any? %>
+
+<% @category.errors.full_messages.each do |err| %>
+toastr.options.closeButton = true;
+toastr.error('<%= err %>');
+<% end %>
+
+<% end %>

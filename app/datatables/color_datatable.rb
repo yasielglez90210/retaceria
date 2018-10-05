@@ -32,7 +32,7 @@ class ColorDatatable < AjaxDatatablesRails::ActiveRecord
 
   def get_raw_records
     # insert query here
-    Color.all.order(name: :asc)
+    Color.active
   end
 
 end

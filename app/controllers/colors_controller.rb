@@ -7,10 +7,9 @@ class ColorsController < ApplicationController
   # GET /colors.json
   def index
     @title = 'Colores'
-    # @colors = Color.all.order(name: :asc)
     respond_to do |format|
       format.html
-      format.json { render json: ColorDatatable.new(params, view_context: view_context) }
+      format.json {render json: ColorDatatable.new(params, view_context: view_context)}
     end
   end
 
@@ -35,7 +34,7 @@ class ColorsController < ApplicationController
 
     respond_to do |format|
       if @color.save
-        format.html {redirect_to @color,:flash => {success: 'Color creado exitosamente'}}
+        format.html {redirect_to @color, :flash => {success: 'Color creado exitosamente'}}
         format.json {render json: {data: @color, status: :created, :flash => {success: 'Color creado exitosamente'}}}
       else
         format.html {render :new}
@@ -49,10 +48,11 @@ class ColorsController < ApplicationController
   def update
     respond_to do |format|
       if @color.update(color_params)
-        format.html {redirect_to colors_path, :flash => {success: 'Color editado exitosamente'} }
+        format.html {redirect_to colors_path, :flash => {success: 'Color editado exitosamente'}}
         format.json {render :show, status: :ok, location: @color}
       else
         format.html {render :edit}
+        format.js {render :edit}
         format.json {render json: @color.errors, status: :unprocessable_entity}
       end
     end
@@ -61,13 +61,20 @@ class ColorsController < ApplicationController
   # DELETE /colors/1
   # DELETE /colors/1.json
   def destroy
-    has_colors = HasColor.where("color_id = ?", params[:id])
-    has_colors.each do |item|
-      item.destroy
+    if @color.retaceriums.any?
+      @color.is_delete = true
+      @color.save
+    else
+      has_colors = HasColor.where("color_id = ?", params[:id])
+      has_colors.each do |item|
+        item.destroy
+      end
+      @color.destroy
     end
-    @color.destroy
+
+
     respond_to do |format|
-      format.html {redirect_to colors_url, :flash => {success: 'Color eliminado exitosamente'} }
+      format.html {redirect_to colors_url, :flash => {success: 'Color eliminado exitosamente'}}
       format.json {head :no_content}
     end
   end

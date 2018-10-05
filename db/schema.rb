@@ -57,8 +57,8 @@ ActiveRecord::Schema.define(version: 20181004070621) do
   end
 
   create_table "providers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "name"
-    t.string "razon"
+    t.string "name", null: false
+    t.string "razon", null: false
     t.integer "phone"
     t.string "email"
     t.integer "cuit"

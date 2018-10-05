@@ -1,33 +1,13 @@
-<div class="box">
-  <%= form_with(model: color, local: true, :html => {autocomplete: "off"}) do |form| %>
-      <div class="box-body">
-
-        <div class="row">
-          <div class="col-md-6">
-            <div class="form-group">
-              <%= form.label :name,'Color' , class: 'col-sm-4 control-label ta-left'%>
-              <%= form.text_field :name, id: :color_name, class: 'form-control' %>
-            </div>
-          </div>
-
-          <div class="col-md-12">
-            <div class="actions">
-              <%= form.submit 'Guardar', class: 'btn btn-default' %>
-            </div>
-          </div>
-        </div>
-
+<%= form_with(model: @color,html: {style: "display:inline;",autocomplete: "off" }) do |f| %>
+    <div class="modal-body">
+      <div class="form-group">
+        <%= f.label :name ,'Color', class:"control-label" %>
+        <%= f.text_field :name, class: "form-control" %>
       </div>
-  <% end %>
 
-  <% content_for :otherscripts do %>
-
-      <% if color.errors.any? %>
-          <script>
-              toastr.options.closeButton = true;
-              toastr.error('<%= color.errors.messages[:name][0] %>')
-          </script>
-      <% end %>
-
-  <% end %>
-</div>
+    </div>
+    <div class="modal-footer">
+      <%= f.submit 'Guardar', class: "btn btn-primary" %>
+      <%= link_to "Cancel", "#", class: "btn", data: {dismiss: "modal"} %>
+    </div>
+<% end %>

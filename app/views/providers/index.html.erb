@@ -3,24 +3,65 @@
   <div class="box">
     <!-- /.box-header -->
     <div class="box-body table-responsive">
-      <table class="table table-striped">
+      <table id="dttb" class="table responsive nowrap table-hover" data-source="<%= providers_path(format: :json) %>">
         <thead>
         <tr>
           <th>Proveedor</th>
           <th>Razón social</th>
-          <th>Teléfono</th>
           <th>Correo</th>
+          <th>Teléfono</th>
           <th>Cuit</th>
-          <th colspan="2"></th>
+          <th></th>
+          <th></th>
         </tr>
         </thead>
 
         <tbody>
-        <%= render 'index_r'%>
         </tbody>
       </table>
     </div>
     <div id="product-modal" class="modal fade bs-example-modal-lg"></div>
   </div>
 </section>
+
+
+<% content_for :otherscripts do %>
+
+    <script>
+        $(document).ready(function() {
+            $('#dttb').dataTable({
+                "processing": true,
+                "serverSide": true,
+                "ajax": $('#dttb').data('source'),
+                "pagingType": "full_numbers",
+                "columns": [
+                    {"data": "name"},
+                    {"data": "razon"},
+                    {"data": "email"},
+                    {"data": "phone"},
+                    {"data": "cuit"},
+                    {"data": "edit_action","width":50},
+                    {"data": "delete_action","width":50}
+                ],
+                "language": {
+                    "lengthMenu": "Mostrar en bloques de  _MENU_  registros",
+                    "zeroRecords": "No se he encontrado",
+                    "info": "Mostrando página _PAGE_  de _PAGES_ pagina(s)",
+                    "infoEmpty": "No hay registros disponibles",
+                    "infoFiltered": "(filtrado de _MAX_ registros en total)",
+                    "sSearch": "Buscar:",
+                    "sProcessing":'Procesando...',
+                    "oPaginate": {
+                        "sFirst": "Primero",
+                        "sPrevious": "Anterior",
+                        "sNext": "Siguiente",
+                        "sLast": "Último"
+                    }
+                },
+                "bSort": false,
+
+            });
+        });
+    </script>
+<% end %>
 

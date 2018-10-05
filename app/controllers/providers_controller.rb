@@ -6,7 +6,11 @@ class ProvidersController < ApplicationController
   # GET /providers
   # GET /providers.json
   def index
-    @providers = Provider.all
+    @title = 'Proveedores'
+    respond_to do |format|
+      format.html
+      format.json { render json: ProviderDatatable.new(params, view_context: view_context) }
+    end
   end
 
   # GET /providers/1
@@ -49,6 +53,7 @@ class ProvidersController < ApplicationController
         format.json { render :show, status: :ok, location: @provider }
       else
         format.html { render :edit }
+        format.js {render :edit}
         format.json { render json: @provider.errors, status: :unprocessable_entity }
       end
     end
